@@ -1,0 +1,15 @@
+{
+  "name": "chebo",
+  "version": "0.0.0",
+  "description": "chrome extension bootstrap",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git://github.com/takkyuuplayer/chebo.git",
+  "author": "takkyuuplayer",
+  "license": "BSD",
+  "dependencies": {
+      "coffee-script": ">= 1.6.2"
+  }
+}
+
