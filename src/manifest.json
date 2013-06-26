@@ -6,12 +6,12 @@
   "content_scripts": [
         {
             "permissions": [
-                "http://*.google.co.jp/",
-                "https://*.google.co.jp/"
+                "http://*/*",
+                "https://*/*"
             ],
             "matches": [
-                "http://*.google.co.jp/*",
-                "https://*.google.co.jp/*"
+                "http://*/*",
+                "https://*/*"
             ],
             "js": [
                 "./vendor/underscore-1.4.4.min.js",
