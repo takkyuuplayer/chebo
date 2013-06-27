@@ -20,10 +20,10 @@ useChebo = ->
     script.onload = createChebo
 
   @withChebo = (func) ->
-    # $ = Chebo.jQuery
-    # jQuery = Chebo.jQuery
-    # _ = Chebo.underscore
-    # Backbone = Chebo.Backbone
+    $ = Chebo.jQuery
+    jQuery = Chebo.jQuery
+    _ = Chebo.underscore
+    Backbone = Chebo.Backbone
     func = func.toString()
     eval "(#{func})()"
 

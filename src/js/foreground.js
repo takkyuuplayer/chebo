@@ -24,6 +24,11 @@
       script.onload = createChebo;
     }
     return this.withChebo = function(func) {
+      var $, Backbone, jQuery, _;
+      $ = Chebo.jQuery;
+      jQuery = Chebo.jQuery;
+      _ = Chebo.underscore;
+      Backbone = Chebo.Backbone;
       func = func.toString();
       return eval("(" + func + ")()");
     };
