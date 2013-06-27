@@ -1,8 +1,8 @@
 {
-  "name": "extension",
-  "version": "0.0.1",
+  "name": "chebo",
+  "version": "0.1.0",
   "manifest_version": 2,
-  "description": "Chrome extension bootstarp.",
+  "description": "load jQuery, underscore, backbone.",
   "content_scripts": [
         {
             "permissions": [
