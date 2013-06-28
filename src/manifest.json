@@ -15,7 +15,7 @@
             ],
             "js": [
                 "./vendor/underscore-1.4.4.min.js",
-                "./vendor/jquery-1.9.1.min.js",
+                "./vendor/jquery-2.0.2.min.js",
                 "./vendor/backbone-1.0.0.min.js",
                 "./vendor/backbone.localStorage-1.1.0.min.js",
                 "./js/foreground.js"

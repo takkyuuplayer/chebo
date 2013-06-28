@@ -5,7 +5,7 @@
   useChebo = function() {
     var Chebo, createChebo, len, script, scripts, src, _i, _len,
       _this = this;
-    scripts = ["//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js", "//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"];
+    scripts = ["//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js", "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js", "//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"];
     Chebo = {};
     len = 0;
     createChebo = function() {
