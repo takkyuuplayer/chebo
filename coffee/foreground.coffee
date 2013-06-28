@@ -1,7 +1,8 @@
 useChebo = ->
   scripts = ["//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js",
              "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js",
-             "//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"
+             "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js",
+             "//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"
             ]
 
   Chebo = {}
