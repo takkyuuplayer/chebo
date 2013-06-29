@@ -1,24 +1,26 @@
 useChebo = ->
-  scripts = ["//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js",
-             "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js",
-             "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js",
-             "//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"
-            ]
-
-  Chebo = {}
-  len = 0
-  createChebo = =>
-    len++
-    if scripts.length == len
+  loads = ->
+    require.config(
+      paths:
+        jquery       : "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min"
+        underscore   : "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min"
+        backbone     : "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min"
+        localstorage : "//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min"
+      shim :
+        backbone : ['jquery', 'underscore']
+        localstorage : ['backbone']
+    )
+    require ["jquery", "underscore", "backbone", "localstorage"], ->
+      Chebo = {}
       Chebo.jQuery = jQuery.noConflict(true)
       Chebo.Backbone = Backbone.noConflict()
       Chebo.underscore = _.noConflict()
+      @Chebo = Chebo
 
-  for src in scripts
-    script = document.createElement("script")
-    script.src = src
-    document.body.appendChild(script)
-    script.onload = createChebo
+  script = document.createElement("script")
+  script.src = "//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js"
+  document.body.appendChild(script)
+  script.onload = loads
 
   @withChebo = (func) ->
     $ = Chebo.jQuery
@@ -27,7 +29,6 @@ useChebo = ->
     Backbone = Chebo.Backbone
     func = func.toString()
     eval "(#{func})()"
-
 
 script = document.createElement("script")
 src = useChebo.toString()

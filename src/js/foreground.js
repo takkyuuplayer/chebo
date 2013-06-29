@@ -3,26 +3,33 @@
   var script, src, useChebo;
 
   useChebo = function() {
-    var Chebo, createChebo, len, script, scripts, src, _i, _len,
-      _this = this;
-    scripts = ["//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js", "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js", "//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"];
-    Chebo = {};
-    len = 0;
-    createChebo = function() {
-      len++;
-      if (scripts.length === len) {
+    var loads, script;
+    loads = function() {
+      require.config({
+        paths: {
+          jquery: "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min",
+          underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min",
+          backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min",
+          localstorage: "//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min"
+        },
+        shim: {
+          backbone: ['jquery', 'underscore'],
+          localstorage: ['backbone']
+        }
+      });
+      return require(["jquery", "underscore", "backbone", "localstorage"], function() {
+        var Chebo;
+        Chebo = {};
         Chebo.jQuery = jQuery.noConflict(true);
         Chebo.Backbone = Backbone.noConflict();
-        return Chebo.underscore = _.noConflict();
-      }
+        Chebo.underscore = _.noConflict();
+        return this.Chebo = Chebo;
+      });
     };
-    for (_i = 0, _len = scripts.length; _i < _len; _i++) {
-      src = scripts[_i];
-      script = document.createElement("script");
-      script.src = src;
-      document.body.appendChild(script);
-      script.onload = createChebo;
-    }
+    script = document.createElement("script");
+    script.src = "//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js";
+    document.body.appendChild(script);
+    script.onload = loads;
     return this.withChebo = function(func) {
       var $, Backbone, jQuery, _;
       $ = Chebo.jQuery;
